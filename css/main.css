@@ -256,17 +256,16 @@ footer p{
 /* List Styling --------------------------------------------------------- */
 
 ol {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    font-weight: 400;
-    color: #3f3931;
-    line-height: 1.5rem;
+    color: #1a1a1a;
     max-width: 100%;
-    margin-bottom: 2rem;
+    line-height: 1.5rem;
 }
 
 li {
     font-weight: 100;
+    margin-bottom:0.3rem;
 }
 
 ul {
