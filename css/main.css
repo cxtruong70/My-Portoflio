@@ -16,9 +16,12 @@
 
 body {
     background-color:white;
-    display:block;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin:0;
-    min-height:100vh;
+    height:100vh;
+    /* min-height:100vh; */
 }
 
 .nav_and_main{
@@ -119,12 +122,6 @@ nav ul {
     color:#393e46;
 }
 
-.nav_item:focus,
-.nav_item:hover,
-.nav_item:active {
-    /*background-color:#FFE9D1;*/
-}
-
 .avatar_box{
     position:sticky;
     top:0;
@@ -168,6 +165,7 @@ footer{
 	min-height:9rem;
     padding-bottom:2rem;
     margin-top:2rem;
+    bottom:0;
 }
 
 footer p{
@@ -206,6 +204,10 @@ footer p{
 .social_icon:hover{
     opacity:100%;
     transition:0.3s;
+}
+
+.about-align{
+    align-self: flex-start;
 }
 
 .about_social_icon svg{
