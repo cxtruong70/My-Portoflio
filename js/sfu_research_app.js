@@ -70,7 +70,7 @@ const graph = svg.append('g')
 // Workflow for multiple visualizations in one graph,
 // currently unused (only one promise loaded)
 var bucket = {};
-var promises = [d3.csv("SFU_research_income_by_broad_category_2000-2020.csv")];
+var promises = [d3.csv("../data/SFU_research_income_by_broad_category_2000-2020.csv")];
 
 // Import Data as an array of Promises
 myDataPromises = Promise.all(promises);
