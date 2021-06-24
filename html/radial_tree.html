@@ -48,7 +48,11 @@
 					<p>This is a D3.js radial tree graph that I expanded on by style and implementing node based interactions.</p>
 
 					<h2>D3.js Visualization</h2>
-					<iframe src="research_graph.html"></iframe>
+                    <div style="position: relative;">
+						<iframe src="radial_graph.html"></iframe>
+						<a href="radial_graph.html" style="position:absolute; top:0; left:0; display:inline-block; width:500px; height:500px; z-index:5;"></a>
+					</div>
+
 					<h2>Role</h2>
 					<p>Using D3.js and the in-built radial tree visualizing function, the original graph displayed a json file of nested hierarchical data. I restyled the graph visually and implemented interactions where the branches were made open and close to reveal or hide their children.
                         The graph also dynamically assesses its current size and scales to the frame accordingly. 

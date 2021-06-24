@@ -1,5 +1,5 @@
 // Load static data
-const data = d3.json('../data/flare.json').then(data => {
+const data = d3.json("../data/flare.json").then(data => {
     // Convert to hierarchy
     root = d3.hierarchy(data)
         .sort((a, b) => d3.ascending(a.data.name, b.data.name));
@@ -7,22 +7,25 @@ const data = d3.json('../data/flare.json').then(data => {
 })
 
 // Create Margins and Dimensions
-var viewportWidth = window.innerWidth;
-var viewportHeight = window.innerHeight;
-const svgWidth = viewportWidth;
-const svgHeight = viewportHeight;
-const margin = {top:150, right:50, bottom:50, left: 50};
-const graphWidth = svgWidth - margin.left - margin.right;
-const graphHeight = svgHeight - margin.top - margin.bottom;
+const viewportWidth = window.innerWidth;
+const viewportHeight = window.innerHeight;
+var margin = {top: viewportHeight*0.3, right: viewportWidth*0.1, bottom: viewportHeight*0.1, left: 0.1*viewportWidth};
+var width = viewportWidth; // TRY: viewportWidth or enter a custom width
+var height = viewportHeight; 
+
+const graphWidth = viewportWidth - margin.left - margin.right;
+const graphHeight = viewportHeight - margin.top - margin.bottom;
 const legendPadding = 10;
 const legendWidth = margin.right - legendPadding;
 const radius = graphHeight < graphWidth ? graphHeight/2: graphWidth/2; // select radius based on smallest dimension
 
-// Create and append svg to canvas
-const svg = d3.select(".canvas")
+// Create and append svg to body
+const svg = d3.select("body")
     .append('svg')
-    .attr('width', svgWidth)
-    .attr('height', svgHeight);
+    .attr('width', '100%')
+    .attr('height', '100%')
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("preserveAspectRatio", "xMinYMin");
 
 // Create graph group
 const graph = svg.append('g')

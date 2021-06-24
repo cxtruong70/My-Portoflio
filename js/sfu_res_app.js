@@ -8,7 +8,7 @@
 // Setup SVG's dimensions
 var viewportWidth = window.innerWidth;
 var viewportHeight = window.innerHeight;
-var margin = {top: viewportHeight*0.2, right: 10, bottom: viewportHeight*0.2, left: 0.3*viewportWidth},
+var margin = {top: viewportHeight*0.2, right: viewportWidth*0.2, bottom: viewportHeight*0.2, left: 0.2*viewportWidth},
     width = viewportWidth, // TRY: viewportWidth or enter a custom width
     height = viewportHeight; 
     legendPadding = 40;
@@ -60,10 +60,10 @@ const graph = svg.append('g')
 
 // The legend can be added in any arbitrary order, 
 // since it does not overlap. It is set the the right side here
-// const legend = svg.append('g')
-//   .attr('width', margin.right)
-//   .attr('height', graphHeight)
-//   .attr('transform', `translate(${margin.left+graphWidth+legendPadding},${margin.top})`);
+const legend = svg.append('g')
+  .attr('width', margin.right)
+  .attr('height', graphHeight)
+  .attr('transform', `translate(${margin.left+graphWidth+legendPadding},${margin.top})`);
 
 
 /**************** LOAD DATA ****************/
@@ -269,26 +269,26 @@ const chart = data => {
     }); 
      
     /**************** LEGEND ****************/
-    // const squares = legend.selectAll('rect')
-    //   .data(keys.reverse());
+    const squares = legend.selectAll('rect')
+      .data(keys.reverse());
 
-    // squares.enter()
-    //   .append('rect')
-    //     .attr('width', 15)
-    //     .attr('height', 15)
-    //     .attr('stroke','#3f3f3f')
-    //     .attr('stroke-width',1)
-    //     .attr('y', (d,i,n) => (i*-18)+(n.length*18))
-    //     .attr('fill', (d,i,n) => getGroupColour(keys[i]));
+    squares.enter()
+      .append('rect')
+        .attr('width', 15)
+        .attr('height', 15)
+        .attr('stroke','#3f3f3f')
+        .attr('stroke-width',1)
+        .attr('y', (d,i,n) => (i*-18)+(n.length*18))
+        .attr('fill', (d,i,n) => getGroupColour(keys[i]));
     
-    // squares.enter()
-    //   .append('text')
-    //     .attr('fill', 'black')
-    //     .attr('x',25)
-    //     .attr('y', (d,i,n) => (n.length*18)+(-18*i)+10)
-    //     .text((d,i,n) => {
-    //       return keys[i]})
-    //     .attr('font-size','10');
+    squares.enter()
+      .append('text')
+        .attr('fill', 'black')
+        .attr('x',25)
+        .attr('y', (d,i,n) => (n.length*18)+(-18*i)+10)
+        .text((d,i,n) => {
+          return keys[i]})
+        .attr('font-size','10');
     
     /************* RUNNING SUM LINE ****************/
     // Add group to show the running sum
